@@ -7,6 +7,8 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from '@mui/material/styles';
+import CartWidget from '../CartWidget/CartWidget';
+
 
 export default function ButtonAppBar() {
   const theme = useTheme();
@@ -30,7 +32,6 @@ export default function ButtonAppBar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             LA TIENDITA
           </Typography>
-          <div>
             <IconButton color="inherit">
               Celulares
             </IconButton>
@@ -43,7 +44,7 @@ export default function ButtonAppBar() {
             <IconButton color="inherit">
               Calefacción
             </IconButton>
-          </div>
+            <CartWidget/>
         </Toolbar>
       </AppBar>
     </Box>
