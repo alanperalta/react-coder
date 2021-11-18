@@ -1,25 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Item } from '../../types/Item';
-import { ItemCart } from '../../types/ItemCart';
-import ItemCount from '../ItemCount/ItemCount';
+import ItemList from '../ItemList/ItemList';
+import { getItems } from '../../services/serviceData'
 
-type ItemListContainerProps = {
-  items: Array<Item>;
-}
 
 const containerStyle = {
   color: 'red'
 }
 
-const ItemListContainer = ({ items }: ItemListContainerProps) => {
+const ItemListContainer = () => {
 
-  const handleAddItem = (itemCart: ItemCart) => {
-    alert(`Se agregaron ${itemCart.qty} ${itemCart.item.name}`);
-  }
+  const [items, setItems] = useState(Array<Item>())
+  useEffect(() => {
+    async function getData() {
+      const responseData = await getItems();
+      setItems(responseData);
+    }
+    getData();
+  }, []);
 
   return (
     <div style={containerStyle}>
-      {items.map(item => <ItemCount item={item} onAdd={handleAddItem} key={item.id} />)}
+      <ItemList items={items} />
     </div>
   )
 }

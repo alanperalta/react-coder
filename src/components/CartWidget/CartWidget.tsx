@@ -9,8 +9,8 @@ const cartIconStyle = {
 
 const CartWidget = () => {
   return (
-    <IconButton style={cartIconStyle}>
-      <ShoppingCart/>
+    <IconButton style={cartIconStyle} data-testid="cart-widget">
+      <ShoppingCart />
     </IconButton>
   )
 }

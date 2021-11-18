@@ -8,7 +8,7 @@ type ItemCountProps = {
   item: Item;
 }
 
-const ItemCount = ({ onAdd, item }: ItemCountProps) => {
+const ItemComponent = ({ onAdd, item }: ItemCountProps) => {
   const [qty, setQty] = useState(0);
   const [disabledAdd, setDisabledAdd] = useState(false);
   const [disabledRemove, setDisabledRemove] = useState(false);
@@ -42,7 +42,7 @@ const ItemCount = ({ onAdd, item }: ItemCountProps) => {
           SKU: {item.id}
         </Typography>
         <Typography variant="h5" component="div">
-          {item.name}
+          {item.title}
         </Typography>
         <Typography variant="body2">
           {item.description}
@@ -60,4 +60,4 @@ const ItemCount = ({ onAdd, item }: ItemCountProps) => {
   )
 }
 
-export default ItemCount
+export default ItemComponent
